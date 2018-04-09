@@ -1,0 +1,4 @@
+services:
+#    clm.example:
+#        class: CLMBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

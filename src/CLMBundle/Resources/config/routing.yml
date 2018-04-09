@@ -1,0 +1,3 @@
+clm_homepage:
+    path:     /
+    defaults: { _controller: CLMBundle:Default:index }
