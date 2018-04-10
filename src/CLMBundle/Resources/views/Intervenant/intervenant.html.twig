@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+<table>
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for project in projects %} <!-- recuperer les projets de l'intervenant -->
+    <tr>
+        <td>{{ project.nom }}</td>
+        <td>{{  }}</td> <!-- SELECT count(*) FROM ticket t WHERE t.effectue = false AND les projets de l'intervenant -->
+    </tr>
+    {% endfor %}
+</table>
+
+
+<div class="collection">
+    <a href="#!" class="collection-item"><span class="badge">1</span>Alan</a>
+    <a href="#!" class="collection-item"><span class="new badge">4</span>Alan</a>
+    <a href="#!" class="collection-item">Alan</a>
+    <a href="#!" class="collection-item"><span class="badge">14</span>Alan</a>
+</div>
