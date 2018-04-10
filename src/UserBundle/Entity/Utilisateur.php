@@ -33,6 +33,18 @@ class Utilisateur extends BaseUser
      */
     private $prenom;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="type", type="integer")
+     */
+    private $type;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="CLMBundle\Entity\Competence")
+     */
+    private $competences;
+
     public function __construct()
     {
         parent::__construct();
@@ -85,5 +97,63 @@ class Utilisateur extends BaseUser
     public function getPrenom()
     {
         return $this->prenom;
+    }
+
+    /**
+     * Set type
+     *
+     * @param \int $type
+     *
+     * @return Utilisateur
+     */
+    public function setType(integer $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return \int
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Add competence
+     *
+     * @param \CLMBundle\Entity\Competence $competence
+     *
+     * @return Utilisateur
+     */
+    public function addCompetence(\CLMBundle\Entity\Competence $competence)
+    {
+        $this->competences[] = $competence;
+
+        return $this;
+    }
+
+    /**
+     * Remove competence
+     *
+     * @param \CLMBundle\Entity\Competence $competence
+     */
+    public function removeCompetence(\CLMBundle\Entity\Competence $competence)
+    {
+        $this->competences->removeElement($competence);
+    }
+
+    /**
+     * Get competences
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCompetences()
+    {
+        return $this->competences;
     }
 }

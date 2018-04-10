@@ -22,6 +22,12 @@ class Disponibilite
     private $id;
 
     /**
+     *
+     * @ORM\OneToOne(targetEntity="UserBundle\Entity\Utilisateur")
+     */
+    private $intervenant;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="lundiDebut", type="time", nullable=true)
@@ -465,5 +471,28 @@ class Disponibilite
     {
         return $this->dimancheFin;
     }
-}
 
+    /**
+     * Set intervenant
+     *
+     * @param \UserBundle\Entity\Utilisateur $intervenant
+     *
+     * @return Disponibilite
+     */
+    public function setIntervenant(\UserBundle\Entity\Utilisateur $intervenant = null)
+    {
+        $this->intervenant = $intervenant;
+
+        return $this;
+    }
+
+    /**
+     * Get intervenant
+     *
+     * @return \UserBundle\Entity\Utilisateur
+     */
+    public function getIntervenant()
+    {
+        return $this->intervenant;
+    }
+}
