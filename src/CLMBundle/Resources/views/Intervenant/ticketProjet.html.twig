@@ -1,0 +1,28 @@
+{% extends "::base.html.twig" %}
+
+<div class="container">
+    <div class="row center">
+        <div class="col s6 offset-s3">
+            <h3>{{ project.nom }}</h3>
+        </div>
+    </div>
+
+    <table class="responsive-table stripped centered">
+        <thead>
+        <tr>
+            <th>Nom Equipe</th>
+            <th>Nb Jeton</th>
+            <th>En attente</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for ticket in projects %} <!-- recuperer les tickets du projet / PENSER a classer les projets par effectue=false en haut -->
+            <tr>
+                <td>{{ ticket.equipe.nom }}</td>
+                <td>{{ ticket.equipe.credit }}</td>
+                <td>{{ ticket.effectue }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

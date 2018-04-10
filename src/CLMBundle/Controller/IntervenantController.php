@@ -10,9 +10,10 @@ namespace CLMBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+// TODO
 class IntervenantController extends Controller {
     public function indexAction() {
-        return $this->render('CLMBundle:Default:intervenant.html.twig', array(
+        return $this->render('CLMBundle:Default:ticketProjet.html.twig', array(
 
         ));
     }
