@@ -1,7 +1,7 @@
 <?php
-// src/CLMBundle/Entity/User.php
+// src/UserBundle/Entity/Utilisateur.php
 
-namespace CLMBundle\Entity;
+namespace UserBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="utilisateur")
  */
-class User extends BaseUser
+class Utilisateur extends BaseUser
 {
     /**
      * @ORM\Id
@@ -19,9 +19,24 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=255)
+     */
+    private $prenom;
+
     public function __construct()
     {
         parent::__construct();
         // your own logic
     }
 }
+
