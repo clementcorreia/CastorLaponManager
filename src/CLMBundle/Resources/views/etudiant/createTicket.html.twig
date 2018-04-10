@@ -37,36 +37,21 @@
             </div>
             <div class="row">
                 <!-- TODO  bouton "+" ajouter compétence qui rajoute un input a chaque fois -->
-                
                 <input id="texteTicket" type="text" class="validate">
                 <label for="texteTicket">Description du ticket</label>
             </div>
+            <!--  Attributs a jouter :
+            dateEmission
+            dureeValidite
+            emetteur
+            recepteur
+            traite
 
-
-            <button class="btn waves-effect waves-light light-green lighten-3" type="submit">Valider Ticket
+            Choisir comment les ajouter : peut être avec des champs input en hidden ou alors avec la bd je sais pas (pour les date ce sera surement ça
+            -->
+            <button class="btn waves-effect waves-light light-green lighten-3" type="submit">Créer ticket
                 <i class="material-icons right">arrow_forward</i>
             </button>
         </form>
     </div>
-
-    private $competences;
-    private $contenu;
-
-    private $dateEmission;
-    private $dureeValidite;
-    private $emetteur;
-    private $recepteur;
-    private $traite;
-
-
-    <div class="row">
-        <div class="col s6 center">
-            <!-- test si ya des ticket en cours => ne pas afficher ce boutton / page 404 / bouton désactivé -->
-            <a class="waves-effect waves-light light-green lighten-3 btn" href="#"><i class="material-icons left">details</i>Ticket en cours</a>
-        </div>
-        <div class="col s6 center">
-            <a class="waves-effect waves-light light-green lighten-3 btn" href="#"><i class="material-icons left">create</i>Créer un ticket</a>
-        </div>
-    </div>
-
 </div>
