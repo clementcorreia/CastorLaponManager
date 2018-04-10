@@ -24,16 +24,28 @@ class Projet
     /**
      * @var string
      *
+     * @ORM\Column(name="nom", type="string", length=255, unique=true)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
     /**
-     * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255, unique=true)
+     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\Utilisateur")
      */
-    private $nom;
+    private $intervenants;
+
+    /**
+     *
+     * @ORM\ManyToMany(targetEntity="CLMBundle\Entity\Equipe")
+     */
+    private $equipes;
 
 
     /**
@@ -93,5 +105,79 @@ class Projet
     {
         return $this->nom;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->intervenants = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add intervenant
+     *
+     * @param \UserBundle\Entity\Utilisateur $intervenant
+     *
+     * @return Projet
+     */
+    public function addIntervenant(\UserBundle\Entity\Utilisateur $intervenant)
+    {
+        $this->intervenants[] = $intervenant;
+
+        return $this;
+    }
+
+    /**
+     * Remove intervenant
+     *
+     * @param \UserBundle\Entity\Utilisateur $intervenant
+     */
+    public function removeIntervenant(\UserBundle\Entity\Utilisateur $intervenant)
+    {
+        $this->intervenants->removeElement($intervenant);
+    }
+
+    /**
+     * Get intervenants
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIntervenants()
+    {
+        return $this->intervenants;
+    }
+
+    /**
+     * Add equipe
+     *
+     * @param \CLMBundle\Entity\Equipe $equipe
+     *
+     * @return Projet
+     */
+    public function addEquipe(\CLMBundle\Entity\Equipe $equipe)
+    {
+        $this->equipes[] = $equipe;
+
+        return $this;
+    }
+
+    /**
+     * Remove equipe
+     *
+     * @param \CLMBundle\Entity\Equipe $equipe
+     */
+    public function removeEquipe(\CLMBundle\Entity\Equipe $equipe)
+    {
+        $this->equipes->removeElement($equipe);
+    }
+
+    /**
+     * Get equipes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEquipes()
+    {
+        return $this->equipes;
+    }
+}

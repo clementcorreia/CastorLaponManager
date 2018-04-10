@@ -22,6 +22,12 @@ class Ticket
     private $id;
 
     /**
+     *
+     * @ORM\ManyToMany(targetEntity="CLMBundle\Entity\Competence")
+     */
+    private $competences;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="dateEmission", type="datetimetz")
@@ -36,11 +42,14 @@ class Ticket
     private $dureeValidite;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="emetteur", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="CLMBundle\Entity\Equipe")
      */
     private $emetteur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\Utilisateur")
+     */
+    private $recepteur;
 
     /**
      * @var string
@@ -186,5 +195,69 @@ class Ticket
     {
         return $this->traite;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->competences = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add competence
+     *
+     * @param \CLMBundle\Entity\Competence $competence
+     *
+     * @return Ticket
+     */
+    public function addCompetence(\CLMBundle\Entity\Competence $competence)
+    {
+        $this->competences[] = $competence;
+
+        return $this;
+    }
+
+    /**
+     * Remove competence
+     *
+     * @param \CLMBundle\Entity\Competence $competence
+     */
+    public function removeCompetence(\CLMBundle\Entity\Competence $competence)
+    {
+        $this->competences->removeElement($competence);
+    }
+
+    /**
+     * Get competences
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCompetences()
+    {
+        return $this->competences;
+    }
+
+    /**
+     * Set recepteur
+     *
+     * @param \UserBundle\Entity\Utilisateur $recepteur
+     *
+     * @return Ticket
+     */
+    public function setRecepteur(\UserBundle\Entity\Utilisateur $recepteur = null)
+    {
+        $this->recepteur = $recepteur;
+
+        return $this;
+    }
+
+    /**
+     * Get recepteur
+     *
+     * @return \UserBundle\Entity\Utilisateur
+     */
+    public function getRecepteur()
+    {
+        return $this->recepteur;
+    }
+}

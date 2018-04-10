@@ -28,6 +28,12 @@ class Equipe
      */
     private $credit;
 
+    /**
+     *
+     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\Utilisateur")
+     */
+    private $apprenants;
+
 
     /**
      * Get id
@@ -62,5 +68,46 @@ class Equipe
     {
         return $this->credit;
     }
-}
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->apprenants = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add apprenant
+     *
+     * @param \UserBundle\Entity\Utilisateur $apprenant
+     *
+     * @return Equipe
+     */
+    public function addApprenant(\UserBundle\Entity\Utilisateur $apprenant)
+    {
+        $this->apprenants[] = $apprenant;
+
+        return $this;
+    }
+
+    /**
+     * Remove apprenant
+     *
+     * @param \UserBundle\Entity\Utilisateur $apprenant
+     */
+    public function removeApprenant(\UserBundle\Entity\Utilisateur $apprenant)
+    {
+        $this->apprenants->removeElement($apprenant);
+    }
+
+    /**
+     * Get apprenants
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getApprenants()
+    {
+        return $this->apprenants;
+    }
+}
