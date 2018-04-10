@@ -6,10 +6,8 @@
             <h3>{{ project.nom }}</h3>
         </div>
     </div>
-    <div class="row">
-        <div class="col s3">Equipe :</div>
-        <div class="col s9">{{ equipe.nom }}</div>
-    </div>
+    <div class="row">Equipe : {{ equipe.nom }}</div>
+    <div class="row">Crédits : {{ equipe.credits }}</div>
     <div class="row">
         <table class="responsive-table stripped centered">
             <thead>
@@ -30,32 +28,13 @@
     </div>
 
     <div class="row">
-        <div class="col s12">
-            Description :
+        <div class="col s6 center">
+            <!-- test si ya des ticket en cours => ne pas afficher ce boutton / page 404 / bouton désactivé -->
+            <a class="waves-effect waves-light light-green lighten-3 btn" href="#"><i class="material-icons left">details</i>Ticket en cours</a>
         </div>
-    <div class="row">
-        <div class="col s12">
-            {{ ticket.texte }}
+        <div class="col s6 center">
+            <a class="waves-effect waves-light light-green lighten-3 btn" href="#"><i class="material-icons left">create</i>Créer un ticket</a>
         </div>
-    </div>
-
-
-
-    <!-- TODO commentaire des tickets (?) -->
-    <div class="row">
-        <form class="col s12" action="{{ <X> }}" method="post">
-            <div class="row">
-                <div class="input-field col s10">
-                    <textarea id="commentaireTicket" class="materialize-textarea"></textarea>
-                    <label for="commentaireTicket">Textarea</label>
-                </div>
-                <div class="col s2">
-                    <button class="btn waves-effect waves-light light-green lighten-3" type="submit">Ok
-                        <i class="material-icons right">arrow_forward</i>
-                    </button>
-                </div>
-            </div>
-        </form>
     </div>
 
     <!-- TODO Validation du ticket -->

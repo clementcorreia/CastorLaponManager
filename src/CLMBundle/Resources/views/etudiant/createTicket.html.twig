@@ -1,0 +1,72 @@
+{% extends "::base.html.twig" %}
+
+<div class="container">
+    <div class="row center">
+        <div class="col s6 offset-s3">
+            <h3>{{ project.nom }}</h3>
+        </div>
+    </div>
+    <div class="row">Equipe : {{ equipe.nom }}</div>
+    <div class="row">Crédits : {{ equipe.credits }}</div>
+    <div class="row">
+        <table class="responsive-table stripped centered">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in equipe %}
+                <tr>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.prenom }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- TODO Creation du ticket -->
+    <div class="row">
+        <form class="col s12" action="{{ <X> }}" method="post">
+            <div class="row">
+                <input id="texteTicket" type="text" class="validate">
+                <label for="texteTicket">Description du ticket</label>
+            </div>
+            <div class="row">
+                <!-- TODO  bouton "+" ajouter compétence qui rajoute un input a chaque fois -->
+                
+                <input id="texteTicket" type="text" class="validate">
+                <label for="texteTicket">Description du ticket</label>
+            </div>
+
+
+            <button class="btn waves-effect waves-light light-green lighten-3" type="submit">Valider Ticket
+                <i class="material-icons right">arrow_forward</i>
+            </button>
+        </form>
+    </div>
+
+    private $competences;
+    private $contenu;
+
+    private $dateEmission;
+    private $dureeValidite;
+    private $emetteur;
+    private $recepteur;
+    private $traite;
+
+
+    <div class="row">
+        <div class="col s6 center">
+            <!-- test si ya des ticket en cours => ne pas afficher ce boutton / page 404 / bouton désactivé -->
+            <a class="waves-effect waves-light light-green lighten-3 btn" href="#"><i class="material-icons left">details</i>Ticket en cours</a>
+        </div>
+        <div class="col s6 center">
+            <a class="waves-effect waves-light light-green lighten-3 btn" href="#"><i class="material-icons left">create</i>Créer un ticket</a>
+        </div>
+    </div>
+
+</div>

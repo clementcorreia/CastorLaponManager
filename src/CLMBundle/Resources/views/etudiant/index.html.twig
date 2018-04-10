@@ -1,0 +1,10 @@
+<!-- Accueil de l'etudiant -->
+<!-- Interet de cette page vu que c'est pratiquement la même que intervenant.index ? -->
+
+{% extends "::base.html.twig" %}
+
+<div class="collection">
+    {% for project in projects %} <!-- récuperer les projets de l'équipe de l'étudiant -->
+        <a href="#" classe="collection-item">{{ project.nom }}</a>
+    {% endfor %}
+</div>
