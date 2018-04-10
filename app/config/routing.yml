@@ -8,6 +8,10 @@ login_check:
 logout:
     pattern:   /logout
 
+login:
+    path: /login
+    defaults: { _controller: UserBundle:Security:login }
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
