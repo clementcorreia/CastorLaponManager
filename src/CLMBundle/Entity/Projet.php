@@ -47,6 +47,18 @@ class Projet
      */
     private $equipes;
 
+    /**
+     *
+     * @ORM\ManyToMany(targetEntity="CLMBundle\Entity\Competence")
+     */
+    private $competences;
+
+    /**
+     *
+     * @ORM\ManyToMany(targetEntity="CLMBundle\Entity\Classe")
+     */
+    private $classes;
+
 
     /**
      * Get id
@@ -179,5 +191,73 @@ class Projet
     public function getEquipes()
     {
         return $this->equipes;
+    }
+
+    /**
+     * Add competence
+     *
+     * @param \CLMBundle\Entity\Competence $competence
+     *
+     * @return Projet
+     */
+    public function addCompetence(\CLMBundle\Entity\Competence $competence)
+    {
+        $this->competences[] = $competence;
+
+        return $this;
+    }
+
+    /**
+     * Remove competence
+     *
+     * @param \CLMBundle\Entity\Competence $competence
+     */
+    public function removeCompetence(\CLMBundle\Entity\Competence $competence)
+    {
+        $this->competences->removeElement($competence);
+    }
+
+    /**
+     * Get competences
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCompetences()
+    {
+        return $this->competences;
+    }
+
+    /**
+     * Add class
+     *
+     * @param \CLMBundle\Entity\Classe $class
+     *
+     * @return Projet
+     */
+    public function addClass(\CLMBundle\Entity\Classe $class)
+    {
+        $this->classes[] = $class;
+
+        return $this;
+    }
+
+    /**
+     * Remove class
+     *
+     * @param \CLMBundle\Entity\Classe $class
+     */
+    public function removeClass(\CLMBundle\Entity\Classe $class)
+    {
+        $this->classes->removeElement($class);
+    }
+
+    /**
+     * Get classes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getClasses()
+    {
+        return $this->classes;
     }
 }
