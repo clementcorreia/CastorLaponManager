@@ -1,3 +1,7 @@
 clm_homepage:
     path:     /
     defaults: { _controller: CLMBundle:Default:index }
+
+clm_intervenant:
+    path:     /
+    defaults: { _controller: CLMBundle:Intervenant:index }

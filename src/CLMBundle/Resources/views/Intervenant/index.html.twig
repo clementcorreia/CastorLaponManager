@@ -1,0 +1,9 @@
+<!-- Accueil de l'intervenant -->
+
+{% extends "::base.html.twig" %}
+
+<div class="collection">
+    {% for project in projects %} <!-- recuperer les projets de l'intervenant -->
+        <a href="#" classe="collection-item"><span class="new badge">{{ <X> }}</span>{{ project.nom }}</a> <!-- SELECT count(*) FROM ticket t WHERE t.effectue = false AND les projets de l'intervenant -->
+    {% endfor %}
+</div>
