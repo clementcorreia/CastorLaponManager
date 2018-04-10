@@ -1,26 +1,26 @@
 <?php
 
-namespace UserBundle\Form;
+namespace CLMBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UtilisateurType extends AbstractType
+class ProjetType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('prenom')->add('type')->add('competences');
+        $builder->add('nom')->add('description')->add('intervenants')->add('equipes')->add('competences')->add('classes');
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'UserBundle\Entity\Utilisateur'
+            'data_class' => 'CLMBundle\Entity\Projet'
         ));
     }
 
@@ -29,7 +29,7 @@ class UtilisateurType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'userbundle_utilisateur';
+        return 'clmbundle_projet';
     }
 
 
