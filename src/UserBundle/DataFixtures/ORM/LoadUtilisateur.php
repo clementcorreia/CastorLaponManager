@@ -14,6 +14,12 @@ use UserBundle\Entity\Utilisateur;
  */
 class LoadUtilisateur extends AbstractFixture implements OrderedFixtureInterface
 {
+    protected $container;
+
+    public function __construct($container)
+    {
+        $this->container = $container;
+    }
 
     /**
      * Set loading order.
