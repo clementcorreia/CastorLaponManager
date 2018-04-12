@@ -76,6 +76,11 @@ class Classe
         $this->apprenants = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->getNom();
+    }
+
     /**
      * Add apprenant
      *

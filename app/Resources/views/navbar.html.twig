@@ -1,13 +1,23 @@
-<div class="container">
-    <div class="row center">
-        <div class="col s1">
-            <a href="{{ path('clm_homepage') }}" class="black-text"><i class="material-icons">pets</i></a>
-        </div>
-        <div class="col s10">
-            <a href="{{ path('login') }}">Connexion</a> <!-- Variable pour connexion/intervenant/etudiant/Admin -->
-        </div>
-        <div class="col s1">
-            <i class="material-icons">format_align_center</i>
-        </div>
+<ul id="dropdownProjet" class="dropdown-content">
+    <li><a href="{{ path('clm_projet_liste') }}">Mes&nbsp;projets</a></li>
+    <li><a href="{{ path('clm_projet_edit') }}">Nouveau</a></li>
+</ul>
+<ul id="dropdownEquipe" class="dropdown-content">
+    <li><a href="{{ path('clm_equipe_liste') }}">Mes&nbsp;équipes</a></li>
+    <li><a href="{{ path('clm_equipe_edit') }}">Nouvelle</a></li>
+</ul>
+<nav class="">
+    <div class="nav-wrapper container">
+        <a href="{{ path('clm_homepage') }}" class="white-text brand-logo"><i class="material-icons black-text">pets</i> Castor Lapon Manager</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            {% if app.user %}
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdownProjet">Projets<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdownEquipe">Equipes<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a href="{{ path('logout') }}">Déconnexion</a></li>
+            {% else %}
+            <li><a href="{{ path('login') }}">Connexion</a></li><!-- Variable pour connexion/intervenant/etudiant/Admin -->
+            {% endif %}
+        </ul>
     </div>
-</div>
+</nav>
+<div>&nbsp;</div>

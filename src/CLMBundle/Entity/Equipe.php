@@ -22,6 +22,13 @@ class Equipe
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255, unique=true)
+     */
+    private $nom;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="credit", type="integer")
@@ -109,5 +116,29 @@ class Equipe
     public function getApprenants()
     {
         return $this->apprenants;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Equipe
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
     }
 }

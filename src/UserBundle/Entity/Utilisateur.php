@@ -22,21 +22,21 @@ class Utilisateur extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255, nullable=true)
      */
     private $nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255)
+     * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
      */
     private $prenom;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="type", type="integer")
+     * @ORM\Column(name="type", type="integer", nullable=true)
      */
     private $type;
 
@@ -49,6 +49,10 @@ class Utilisateur extends BaseUser
     {
         parent::__construct();
         // your own logic
+    }
+
+    public function getFullname() {
+        return $this->getPrenom()." ".$this->getNom();
     }
 
     /**

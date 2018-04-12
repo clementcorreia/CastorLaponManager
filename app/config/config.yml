@@ -71,10 +71,6 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: UserBundle\Entity\Utilisateur
-    registration:
-        form:
-            type: userbundle_utilisateur
-            handler: app.registration.form.handler
 
 assetic:
     debug:          '%kernel.debug%'

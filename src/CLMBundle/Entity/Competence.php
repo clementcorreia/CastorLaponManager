@@ -28,6 +28,11 @@ class Competence
      */
     private $nom;
 
+    public function __toString()
+    {
+        return $this->getNom();
+    }
+
 
     /**
      * Get id

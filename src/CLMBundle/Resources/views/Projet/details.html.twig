@@ -1,0 +1,8 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    {% if projet is defined and projet is not null %}
+        <h2>{{ projet.nom }}</h2>
+        <p>{{ projet.description }}</p>
+    {% endif %}
+{% endblock %}

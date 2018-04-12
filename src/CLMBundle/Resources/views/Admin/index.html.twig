@@ -1,0 +1,11 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+Vue admin
+
+<div class="collection">
+    {% for project in 1..10 %} <!-- récuperer les projets de l'équipe de l'étudiant -->
+        <a href="#" classe="collection-item">{{ "project.nom" }}</a>
+    {% endfor %}
+</div>
+{% endblock %}

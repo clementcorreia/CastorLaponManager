@@ -2,6 +2,34 @@ clm_homepage:
     path:     /
     defaults: { _controller: CLMBundle:Default:index }
 
-clm_intervenant:
-    path:     /
+clm_intervenant_index:
+    path:     /intervenant
     defaults: { _controller: CLMBundle:Intervenant:index }
+
+clm_apprenant_index:
+    path:     /apprenant
+    defaults: { _controller: CLMBundle:Apprenant:index }
+
+clm_projet_edit:
+    path:     /projet/edit/{idProjet}
+    defaults: { _controller: CLMBundle:Projet:edit, idProjet: null }
+
+clm_projet_liste:
+    path:     /projet/liste
+    defaults: { _controller: CLMBundle:Projet:liste }
+
+clm_projet_details:
+    path:     /projet/{idProjet}
+    defaults: { _controller: CLMBundle:Projet:details, idProjet: null }
+
+clm_equipe_edit:
+    path:     /equipe/edit/{idEquipe}
+    defaults: { _controller: CLMBundle:Equipe:edit, idEquipe: null }
+
+clm_equipe_liste:
+    path:     /equipe/liste
+    defaults: { _controller: CLMBundle:Equipe:liste }
+
+clm_equipe_details:
+    path:     /equipe/{idEquipe}
+    defaults: { _controller: CLMBundle:Equipe:details, idEquipe: null }

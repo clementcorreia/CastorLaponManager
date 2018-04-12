@@ -7,7 +7,13 @@
     {% block stylesheets %}
         <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ asset('css/materialize/css/materialize.min.css') }}"/>
     {% endblock %}
-    <link href="{{ asset('css/materialize/js/materialize.min.js') }}"/>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script src="{{ asset('css/materialize/js/materialize.min.js') }}"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
@@ -17,6 +23,10 @@
     <div class="container">
         {% block content %}{% endblock %}
     </div>
-    {% block javascripts %}{% endblock %}
+    {% block javascripts %}
+        {% javascripts 'js/main.js' output='js/compiled/main.js' %}
+            <script type="text/javascript" src="{{ asset_url }}?v=0.0.1"></script>
+        {% endjavascripts %}
+    {% endblock %}
 </body>
 </html>

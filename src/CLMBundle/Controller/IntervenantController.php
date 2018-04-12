@@ -1,20 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: arnaudg
- * Date: 10/04/2018
- * Time: 14:42
- */
 
 namespace CLMBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 // TODO
 class IntervenantController extends Controller {
-    public function indexAction() {
-        return $this->render('CLMBundle:Default:ticketProjet.html.twig', array(
 
-        ));
+    public function indexAction() {
+        if($this->isGranted("ROLE_ADMIN") || $this->isGranted("ROLE_INTERVENANT")) {
+            return $this->render('CLMBundle:Intervenant:index.html.twig', array());
+        }
+        else {
+            throw new AccessDeniedException('Vous ne passerez pas !');
+        }
     }
+
 }

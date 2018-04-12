@@ -1,0 +1,7 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    {% if equipe is defined and equipe is not null %}
+        <h2>{{ equipe.nom }}</h2>
+    {% endif %}
+{% endblock %}
