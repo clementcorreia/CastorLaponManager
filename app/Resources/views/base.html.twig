@@ -18,7 +18,6 @@
         filter='cssrewrite' output='css/compiled/main.css' %}
     <link rel="stylesheet" href="{{ asset_url }}?v=0.0.1"/>
     {% endstylesheets %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
@@ -56,9 +55,12 @@
         </div>
     </footer>
     {% block javascripts %}
+        <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
         {% javascripts 'js/main.js' output='js/compiled/main.js' %}
             <script type="text/javascript" src="{{ asset_url }}?v=0.0.4"></script>
         {% endjavascripts %}
     {% endblock %}
+    {% block pageScript %}{% endblock %}
 </body>
 </html>

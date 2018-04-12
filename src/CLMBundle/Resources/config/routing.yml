@@ -2,13 +2,13 @@ clm_homepage:
     path:     /
     defaults: { _controller: CLMBundle:Default:index }
 
-clm_intervenant_index:
-    path:     /intervenant
-    defaults: { _controller: CLMBundle:Intervenant:index }
+#clm_intervenant_index:
+ #   path:     /intervenant
+  #  defaults: { _controller: CLMBundle:Intervenant:index }
 
-clm_apprenant_index:
-    path:     /apprenant
-    defaults: { _controller: CLMBundle:Apprenant:index }
+#clm_apprenant_index:
+ #   path:     /apprenant
+  #  defaults: { _controller: CLMBundle:Apprenant:index }
 
 clm_projet_edit:
     path:     /projet/edit/{idProjet}
@@ -93,3 +93,13 @@ clm_competence_liste:
 clm_competence_details:
     path:     /competence/{idCompetence}
     defaults: { _controller: CLMBundle:Competence:details, idUtilisateur: null }
+
+#clm_intervenants_liste:
+ #   path:     /coachs/
+  #  defaults: { _controller: CLMBundle:Intervenant:liste }
+
+clm_intervenants_search:
+    path:     /coachs/{idCampus}/{idCompetence}/{search}
+    defaults: { _controller: CLMBundle:Intervenant:search, idCampus: 0, idCompetence: 0, search: 0 }
+    options:
+        expose: true

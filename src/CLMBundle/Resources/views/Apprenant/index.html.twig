@@ -1,20 +1,41 @@
 {% extends "::base.html.twig" %}
 
 {% block content %}
+
     <div class="row">
-        {% for projet in projets %} <!-- récuperer les projets de l'équipe de l'étudiant -->
-            <div class="col s12 m4">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">{{ projet.nom }}</span>
-                        <p>{{ projet.description }}</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="{{ path('clm_projet_edit', {'idProjet' : projet.id}) }}">Modifier</a>
-                        <a href="{{ path('clm_projet_details', {'idProjet' : projet.id}) }}">Détails</a>
-                    </div>
+        <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Gestion de vos tickets</span>
+                </div>
+                <div class="card-action">
+                    <a href="{{ path('clm_ticket_liste') }}">Liste</a>
+                    <a href="{{ path('clm_ticket_edit') }}">Nouveau</a>
                 </div>
             </div>
-        {% endfor %}
+        </div>
+        <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Gestion de vos projets</span>
+                </div>
+                <div class="card-action">
+                    <a href="{{ path('clm_projet_liste') }}">Liste</a>
+                    <a href="{{ path('clm_projet_edit') }}">Nouveau</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Gestion de vos équipes</span>
+                </div>
+                <div class="card-action">
+                    <a href="{{ path('clm_equipe_liste') }}">Liste</a>
+                    <a href="{{ path('clm_equipe_edit') }}">Nouvelle</a>
+                </div>
+            </div>
+        </div>
     </div>
+
 {% endblock %}

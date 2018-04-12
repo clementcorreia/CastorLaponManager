@@ -10,4 +10,33 @@ namespace UserBundle\Repository;
  */
 class UtilisateurRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findByRole($role)
+    {
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select('u')
+            ->from($this->_entityName, 'u')
+            ->where('u.roles LIKE :roles')
+            ->setParameter('roles', '%"' . $role . '"%');
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function findCoachBySearch($search) {
+        if($search === 0) {
+            return array();
+        }
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select('u')
+            ->from($this->_entityName, 'u')
+            ->where('u.roles LIKE :roles')
+            ->andWhere('u.nom LIKE :nom')
+            ->orWhere('u.prenom LIKE :prenom')
+            ->setParameter('roles', '%"ROLE_INTERVENANT"%')
+            ->setParameter('nom', '%'.$search.'%')
+            ->setParameter('prenom', '%'.$search.'%');
+
+        return $qb->getQuery()->getResult();
+    }
+
 }

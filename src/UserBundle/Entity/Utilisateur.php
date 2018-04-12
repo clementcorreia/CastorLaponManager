@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="utilisateur")
+ * @ORM\Entity(repositoryClass="UserBundle\Repository\UtilisateurRepository")
  */
 class Utilisateur extends BaseUser
 {
@@ -56,6 +57,16 @@ class Utilisateur extends BaseUser
     public function __toString()
     {
         return $this->getFullname();
+    }
+
+    public function containsCompetence($competence) {
+        $competences = $this->getCompetences()->getValues();
+        foreach ($competences as $c) {
+            if($c == $competence) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

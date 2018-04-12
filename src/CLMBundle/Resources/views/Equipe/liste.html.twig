@@ -10,6 +10,7 @@
                         <span class="card-title">{{ equipe.nom }}</span>
                         <p>Projet : {% if equipe.projet is not null %}{{ equipe.projet }}{% else %}<i>Aucun</i>{% endif %}</p>
                         <p>Nombre d'élèves : {{ equipe.apprenants|length }}</p>
+                        <p>Crédits restants : {{ equipe.credit }}</p>
                     </div>
                     <div class="card-action">
                         <a href="{{ path('clm_equipe_edit', {'idEquipe' : equipe.id}) }}">Modifier</a>

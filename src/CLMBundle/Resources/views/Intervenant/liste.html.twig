@@ -1,0 +1,66 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    <h3>Liste des coachs</h3>
+    <div class="nav-wrapper">
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="search" type="search" placeholder="Rercherche par nom ou prénom (1 mot)" {% if search is not empty %}value="{{ search }}"{% endif %} />
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+            </div>
+            <div class="col s3">
+                <select id="campus">
+                    <optgroup label="Campus">
+                        <option value="0">Aucun campus</option>
+                        {% for campus in tab_campus %}
+                            <option value="{{ campus.id }}" {% if campus.id == idCampus %}selected="selected"{% endif %}>{{ campus }}</option>
+                        {% endfor %}
+                    </optgroup>
+                </select>
+            </div>
+            <div class="col s3">
+                <select id="competence">
+                    <optgroup label="Compétence">
+                        <option value="0">Aucune compétence</option>
+                        {% for competence in tab_competences %}
+                            <option value="{{ competence.id }}" {% if competence.id == idCompetence %}selected="selected"{% endif %}>{{ competence }}</option>
+                        {% endfor %}
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Login</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if intervenants|length > 0 %}
+                {% for utilisateur in intervenants %}
+                    <tr>
+                        <td>{{ utilisateur.prenom }}</td>
+                        <td>{{ utilisateur.nom }}</td>
+                        <td>{{ utilisateur.username }}</td>
+                        <td><a href="mailto:{{ utilisateur.email }}">{{ utilisateur.email }}</a></td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="4" class="center">Aucun résultat</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block pageScript %}
+    {% javascripts 'js/search.js' output='js/compiled/search.js' %}
+        <script type="text/javascript" src="{{ asset_url }}?v=0.0.2"></script>
+    {% endjavascripts %}
+{% endblock %}

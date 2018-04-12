@@ -32,9 +32,8 @@ class DefaultController extends Controller
                 ));
             }
             elseif ($this->isGranted('ROLE_APPRENANT')) {
-                $projets = $this->getDoctrine()->getRepository("CLMBundle:Projet")->findAll();
-                return $this->render("CLMBundle:Apprenant:index.html.twig", array(
-                    'projets' => $projets,
+                return $this->render('CLMBundle:Apprenant:index.html.twig', array(
+
                 ));
             }
         }
