@@ -2,8 +2,6 @@
 
 {% block content %}
 
-Vue intervenant
-
 <div class="collection">
     {% for project in 1..10 %} <!-- recuperer les projets de l'intervenant -->
         <a href="#" classe="collection-item"><span class="new badge">{{ "X" }}</span>{{ "project.nom" }}</a> <!-- SELECT count(*) FROM ticket t WHERE t.effectue = false AND les projets de l'intervenant -->

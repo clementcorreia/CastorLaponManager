@@ -1,0 +1,36 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Login</th>
+                <th>Email</th>
+                <th>Roles</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for utilisateur in utilisateurs %}
+                {% set roles = "" %}
+                {% for role in utilisateur.roles %}
+                    {% if role != "ROLE_USER" %}
+                        {% if loop.index == 1 %}
+                            {% set roles = role %}
+                        {% else %}
+                            {% set roles = roles~', '~role %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                <tr>
+                    <td>{{ utilisateur.prenom }}</td>
+                    <td>{{ utilisateur.nom }}</td>
+                    <td>{{ utilisateur.username }}</td>
+                    <td>{{ utilisateur.email }}</td>
+                    <td>{{ roles }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -15,9 +15,14 @@ class TicketController extends Controller {
         if(!is_null($idTicket) && $idTicket > 0)
             $ticket = $this->getDoctrine()->getRepository("CLMBundle:Ticket")->find($idTicket);
 
+        $repo = $this->getDoctrine()
+            ->getManager()
+            ->getRepository("UserBundle:Utilisateur");
+
         $form = $this->createForm("CLMBundle\Form\TicketType", $ticket,array(
             'method' => 'POST',
-            'action' => $this->generateUrl('clm_ticket_edit', array('idTicket' => $idTicket))
+            'action' => $this->generateUrl('clm_ticket_edit', array('idTicket' => $idTicket)),
+            'repo' => $repo
         ));
 
         $form->handleRequest($request);

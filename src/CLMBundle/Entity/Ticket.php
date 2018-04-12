@@ -22,6 +22,13 @@ class Ticket
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=255)
+     */
+    private $titre;
+
+    /**
      *
      * @ORM\ManyToMany(targetEntity="CLMBundle\Entity\Competence")
      */
@@ -45,6 +52,11 @@ class Ticket
      * @ORM\ManyToOne(targetEntity="CLMBundle\Entity\Equipe")
      */
     private $emetteur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CLMBundle\Entity\Projet")
+     */
+    private $projet;
 
     /**
      * @ORM\ManyToOne(targetEntity="UserBundle\Entity\Utilisateur")
@@ -259,5 +271,53 @@ class Ticket
     public function getRecepteur()
     {
         return $this->recepteur;
+    }
+
+    /**
+     * Set titre
+     *
+     * @param string $titre
+     *
+     * @return Ticket
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    /**
+     * Get titre
+     *
+     * @return string
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * Set projet
+     *
+     * @param \CLMBundle\Entity\Projet $projet
+     *
+     * @return Ticket
+     */
+    public function setProjet(\CLMBundle\Entity\Projet $projet = null)
+    {
+        $this->projet = $projet;
+
+        return $this;
+    }
+
+    /**
+     * Get projet
+     *
+     * @return \CLMBundle\Entity\Projet
+     */
+    public function getProjet()
+    {
+        return $this->projet;
     }
 }

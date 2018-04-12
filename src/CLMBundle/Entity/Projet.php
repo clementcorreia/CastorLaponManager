@@ -59,6 +59,11 @@ class Projet
      */
     private $classes;
 
+    public function __toString()
+    {
+        return $this->getNom();
+    }
+
 
     /**
      * Get id

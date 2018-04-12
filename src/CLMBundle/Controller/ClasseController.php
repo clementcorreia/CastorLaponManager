@@ -15,9 +15,14 @@ class ClasseController extends Controller {
         if(!is_null($idClasse) && $idClasse > 0)
             $classe = $this->getDoctrine()->getRepository("CLMBundle:Classe")->find($idClasse);
 
+        $repo = $this->getDoctrine()
+            ->getManager()
+            ->getRepository("UserBundle:Utilisateur");
+
         $form = $this->createForm("CLMBundle\Form\ClasseType", $classe,array(
             'method' => 'POST',
             'action' => $this->generateUrl('clm_classe_edit', array('idClasse' => $idClasse)),
+            'repo' => $repo
         ));
 
         $form->handleRequest($request);

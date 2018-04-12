@@ -34,16 +34,14 @@ class Utilisateur extends BaseUser
     private $prenom;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="type", type="integer", nullable=true)
-     */
-    private $type;
-
-    /**
      * @ORM\ManyToMany(targetEntity="CLMBundle\Entity\Competence")
      */
     private $competences;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CLMBundle\Entity\Campus")
+     */
+    private $campus;
 
     public function __construct()
     {
@@ -104,30 +102,6 @@ class Utilisateur extends BaseUser
     }
 
     /**
-     * Set type
-     *
-     * @param \int $type
-     *
-     * @return Utilisateur
-     */
-    public function setType(integer $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return \int
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
      * Add competence
      *
      * @param \CLMBundle\Entity\Competence $competence
@@ -159,5 +133,29 @@ class Utilisateur extends BaseUser
     public function getCompetences()
     {
         return $this->competences;
+    }
+
+    /**
+     * Set campus
+     *
+     * @param \CLMBundle\Entity\Campus $campus
+     *
+     * @return Utilisateur
+     */
+    public function setCampus(\CLMBundle\Entity\Campus $campus = null)
+    {
+        $this->campus = $campus;
+
+        return $this;
+    }
+
+    /**
+     * Get campus
+     *
+     * @return \CLMBundle\Entity\Campus
+     */
+    public function getCampus()
+    {
+        return $this->campus;
     }
 }

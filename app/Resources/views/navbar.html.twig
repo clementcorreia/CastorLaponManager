@@ -1,28 +1,68 @@
+{% if is_granted('ROLE_ADMIN') %}
 <ul id="dropdownProjet" class="dropdown-content">
-    <li><a href="{{ path('clm_projet_liste') }}">Mes&nbsp;projets</a></li>
+    <li><a href="{{ path('clm_projet_liste') }}">Liste</a></li>
     <li><a href="{{ path('clm_projet_edit') }}">Nouveau</a></li>
 </ul>
 <ul id="dropdownEquipe" class="dropdown-content">
-    <li><a href="{{ path('clm_equipe_liste') }}">Mes&nbsp;équipes</a></li>
+    <li><a href="{{ path('clm_equipe_liste') }}">Liste</a></li>
     <li><a href="{{ path('clm_equipe_edit') }}">Nouvelle</a></li>
 </ul>
 <ul id="dropdownClasse" class="dropdown-content">
-    <li><a href="{{ path('clm_classe_liste') }}">Mes&nbsp;classes</a></li>
+    <li><a href="{{ path('clm_classe_liste') }}">Liste</a></li>
     <li><a href="{{ path('clm_classe_edit') }}">Nouvelle</a></li>
 </ul>
 <ul id="dropdownTicket" class="dropdown-content">
-    <li><a href="{{ path('clm_ticket_liste') }}">Mes&nbsp;tickets</a></li>
+    <li><a href="{{ path('clm_ticket_liste') }}">Liste</a></li>
     <li><a href="{{ path('clm_ticket_edit') }}">Nouveau</a></li>
 </ul>
+<ul id="dropdownAdmin" class="dropdown-content">
+    <li><a href="{{ path('clm_utilisateur_liste') }}">Liste des utilisateurs</a></li>
+    <li><a href="{{ path('clm_utilisateur_edit') }}">Nouvel utilisateur</a></li>
+    <li class="divider"></li>
+    <li><a href="{{ path('clm_campus_liste') }}">Liste des campus</a></li>
+    <li><a href="{{ path('clm_campus_edit') }}">Nouveau campus</a></li>
+</ul>
+{% elseif is_granted('ROLE_INTERVENANT') %}
+<ul id="dropdownProjet" class="dropdown-content">
+    <li><a href="{{ path('clm_projet_liste') }}">Liste</a></li>
+    <li><a href="{{ path('clm_projet_edit') }}">Nouveau</a></li>
+</ul>
+<ul id="dropdownClasse" class="dropdown-content">
+    <li><a href="{{ path('clm_classe_liste') }}">Liste</a></li>
+</ul>
+<ul id="dropdownTicket" class="dropdown-content">
+    <li><a href="{{ path('clm_ticket_liste') }}">Liste</a></li>
+    <li><a href="{{ path('clm_ticket_edit') }}">Nouveau</a></li>
+</ul>
+{% elseif is_granted('ROLE_APPRENANT') %}
+<ul id="dropdownEquipe" class="dropdown-content">
+    <li><a href="{{ path('clm_equipe_liste') }}">Liste</a></li>
+    <li><a href="{{ path('clm_equipe_edit') }}">Nouvelle</a></li>
+</ul>
+<ul id="dropdownTicket" class="dropdown-content">
+    <li><a href="{{ path('clm_ticket_liste') }}">Liste</a></li>
+    <li><a href="{{ path('clm_ticket_edit') }}">Nouveau</a></li>
+</ul>
+{% endif %}
 <nav class="">
     <div class="nav-wrapper container">
-        <a href="{{ path('clm_homepage') }}" class="white-text brand-logo"><i class="material-icons black-text">pets</i> Castor Lapon Manager</a>
+        <a href="{{ path('clm_homepage') }}" class="white-text brand-logo"><i class="material-icons black-text">pets</i> Castor Lapon M.</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             {% if app.user %}
-                <li><a class="dropdown-trigger" href="#!" data-target="dropdownProjet">Projets<i class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a class="dropdown-trigger" href="#!" data-target="dropdownEquipe">Equipes<i class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a class="dropdown-trigger" href="#!" data-target="dropdownClasse">Classes<i class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a class="dropdown-trigger" href="#!" data-target="dropdownTicket">Tickets<i class="material-icons right">arrow_drop_down</i></a></li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdownProjet">Projets<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdownEquipe">Equipes<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdownClasse">Classes<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdownTicket">Tickets<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdownAdmin">Administration<i class="material-icons right">arrow_drop_down</i></a></li>
+                {% elseif is_granted('ROLE_INTERVENANT') %}
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdownProjet">Projets<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdownClasse">Classes<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdownTicket">Tickets<i class="material-icons right">arrow_drop_down</i></a></li>
+                {% elseif is_granted('ROLE_APPRENANT') %}
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdownEquipe">Equipes<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdownTicket">Tickets<i class="material-icons right">arrow_drop_down</i></a></li>
+                {% endif %}
             <li><a href="{{ path('logout') }}">Déconnexion</a></li>
             {% else %}
             <li><a href="{{ path('login') }}">Connexion</a></li><!-- Variable pour connexion/intervenant/etudiant/Admin -->

@@ -1,0 +1,15 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+
+    {{ form_start(form) }}
+
+    {{ form_rest(form) }}
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-warning hidden" data-dismiss="modal">Annuler</button>
+        <button type="submit" class="btn btn-success" data-action="submit">Enregistrer</button>
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}

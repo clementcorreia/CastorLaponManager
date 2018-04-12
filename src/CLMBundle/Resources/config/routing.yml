@@ -57,3 +57,27 @@ clm_ticket_liste:
 clm_ticket_details:
     path:     /ticket/{idTicket}
     defaults: { _controller: CLMBundle:Ticket:details, idTicket: null }
+
+clm_utilisateur_edit:
+    path:     /utilisateur/edit/{idUtilisateur}
+    defaults: { _controller: UserBundle:Utilisateur:edit, idUtilisateur: null }
+
+clm_utilisateur_liste:
+    path:     /utilisateur/liste
+    defaults: { _controller: UserBundle:Utilisateur:liste }
+
+clm_utilisateur_details:
+    path:     /utilisateur/{idUtilisateur}
+    defaults: { _controller: UserBundle:Utilisateur:details, idUtilisateur: null }
+
+clm_campus_edit:
+    path:     /campus/edit/{idCampus}
+    defaults: { _controller: CLMBundle:Campus:edit, idCampus: null }
+
+clm_campus_liste:
+    path:     /campus/liste
+    defaults: { _controller: CLMBundle:Campus:liste }
+
+clm_campus_details:
+    path:     /campus/{idCampus}
+    defaults: { _controller: CLMBundle:Campus:details, idUtilisateur: null }

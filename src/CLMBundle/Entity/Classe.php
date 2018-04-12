@@ -33,6 +33,11 @@ class Classe
      */
     private $apprenants;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="CLMBundle\Entity\Campus")
+     */
+    private $campus;
+
 
     /**
      * Get id
@@ -113,5 +118,29 @@ class Classe
     public function getApprenants()
     {
         return $this->apprenants;
+    }
+
+    /**
+     * Set campus
+     *
+     * @param \CLMBundle\Entity\Campus $campus
+     *
+     * @return Classe
+     */
+    public function setCampus(\CLMBundle\Entity\Campus $campus = null)
+    {
+        $this->campus = $campus;
+
+        return $this;
+    }
+
+    /**
+     * Get campus
+     *
+     * @return \CLMBundle\Entity\Campus
+     */
+    public function getCampus()
+    {
+        return $this->campus;
     }
 }

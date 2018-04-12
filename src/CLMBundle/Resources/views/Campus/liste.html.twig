@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    <h3>Liste des campus</h3>
+    <div class="row">
+        {% if campusListe|length <= 0 %}
+            <p>Aucun campus</p>
+        {% endif %}
+        <table>
+            <thead>
+            <tr>
+                <th>Ville</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+        {% for campus in campusListe %} <!-- récuperer les campuss de l'équipe de l'étudiant -->
+                <tr>
+                    <td>{{ campus.ville }}</td>
+                    <td></td>
+                </tr>
+        {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}
