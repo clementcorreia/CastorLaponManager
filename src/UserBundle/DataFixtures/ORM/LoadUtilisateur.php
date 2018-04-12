@@ -95,6 +95,12 @@ class LoadUtilisateur extends AbstractFixture implements OrderedFixtureInterface
         $item5->setPassword($encoder->encodePassword($item5, 'arnaud'));
         $item5->addRole('ROLE_APPRENANT');
 
+        $manager->persist($item1);
+        $manager->persist($item2);
+        $manager->persist($item3);
+        $manager->persist($item4);
+        $manager->persist($item5);
+
         $manager->flush();
     }
 
