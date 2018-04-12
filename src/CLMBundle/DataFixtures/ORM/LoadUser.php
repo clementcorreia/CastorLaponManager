@@ -45,6 +45,7 @@ class LoadUser extends AbstractFixture implements OrderedFixtureInterface
         $item1->setEmailCanonical("clement.correia@epsi.fr");
         $item1->setEnabled(true);
         $item1->setPassword($encoder->encodePassword($item1, 'clement'));
+        $item1->addRole('ROLE_ADMIN');
 
         $item2 = new User();
         $this->addReference('_reference_CEMUserBundleEntityUser2', $item2);
@@ -56,6 +57,7 @@ class LoadUser extends AbstractFixture implements OrderedFixtureInterface
         $item2->setEmailCanonical("leonard.pasquier@epsi.fr");
         $item2->setEnabled(true);
         $item2->setPassword($encoder->encodePassword($item2, 'leonard'));
+        $item2->addRole('ROLE_INTERVENANT');
 
         $item3 = new User();
         $this->addReference('_reference_CEMUserBundleEntityUser3', $item3);
@@ -67,6 +69,7 @@ class LoadUser extends AbstractFixture implements OrderedFixtureInterface
         $item3->setEmailCanonical("hugo.severin@epsi.fr");
         $item3->setEnabled(true);
         $item3->setPassword($encoder->encodePassword($item3, 'hugo'));
+        $item3->addRole('ROLE_INTERVENANT');
 
         $item4 = new User();
         $this->addReference('_reference_CEMUserBundleEntityUser4', $item4);
@@ -78,6 +81,7 @@ class LoadUser extends AbstractFixture implements OrderedFixtureInterface
         $item4->setEmailCanonical("thomas.maury@epsi.fr");
         $item4->setEnabled(true);
         $item4->setPassword($encoder->encodePassword($item4, 'thomas'));
+        $item4->addRole('ROLE_APPRENANT');
 
         $item5 = new User();
         $this->addReference('_reference_CEMUserBundleEntityUser5', $item5);
@@ -89,6 +93,7 @@ class LoadUser extends AbstractFixture implements OrderedFixtureInterface
         $item5->setEmailCanonical("arnaud.guilhaumon@epsi.fr");
         $item5->setEnabled(true);
         $item5->setPassword($encoder->encodePassword($item5, 'arnaud'));
+        $item5->addRole('ROLE_APPRENANT');
 
         $manager->flush();
     }
