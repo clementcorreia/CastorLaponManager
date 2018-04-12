@@ -31,7 +31,7 @@ class LoadUtilisateur extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $manager->getClassMetadata(User::class)->setIdGeneratorType(ClassMetadata::GENERATOR_TYPE_NONE);
+        $manager->getClassMetadata(Utilisateur::class)->setIdGeneratorType(ClassMetadata::GENERATOR_TYPE_NONE);
 
         $encoder = $this->container->get('security.password_encoder');
 
