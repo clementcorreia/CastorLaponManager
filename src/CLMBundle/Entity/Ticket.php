@@ -35,11 +35,11 @@ class Ticket
     private $dateEmission;
 
     /**
-     * @var \DateTime
+     * @var int
      *
-     * @ORM\Column(name="dureeValidite", type="time", nullable=true)
+     * @ORM\Column(name="dureeValidite", type="integer", nullable=true)
      */
-    private $dureeValidite;
+    private $dureeValidite = -1;
 
     /**
      * @ORM\ManyToOne(targetEntity="CLMBundle\Entity\Equipe")
