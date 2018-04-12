@@ -1,0 +1,20 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        {% for ticket in tickets %} <!-- récuperer les tickets de l'équipe de l'étudiant -->
+            <div class="col s12 m4">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{ ticket.nom }}</span>
+                        <p>{{ ticket.description }}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{{ path('clm_ticket_edit', {'idTicket' : ticket.id}) }}">Modifier</a>
+                        <a href="{{ path('clm_ticket_details', {'idTicket' : ticket.id}) }}">Détails</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

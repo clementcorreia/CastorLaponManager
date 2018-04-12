@@ -33,3 +33,27 @@ clm_equipe_liste:
 clm_equipe_details:
     path:     /equipe/{idEquipe}
     defaults: { _controller: CLMBundle:Equipe:details, idEquipe: null }
+
+clm_classe_edit:
+    path:     /classe/edit/{idClasse}
+    defaults: { _controller: CLMBundle:Classe:edit, idClasse: null }
+
+clm_classe_liste:
+    path:     /classe/liste
+    defaults: { _controller: CLMBundle:Classe:liste }
+
+clm_classe_details:
+    path:     /classe/{idClasse}
+    defaults: { _controller: CLMBundle:Classe:details, idClasse: null }
+
+clm_ticket_edit:
+    path:     /ticket/edit/{idTicket}
+    defaults: { _controller: CLMBundle:Ticket:edit, idTicket: null }
+
+clm_ticket_liste:
+    path:     /ticket/liste
+    defaults: { _controller: CLMBundle:Ticket:liste }
+
+clm_ticket_details:
+    path:     /ticket/{idTicket}
+    defaults: { _controller: CLMBundle:Ticket:details, idTicket: null }

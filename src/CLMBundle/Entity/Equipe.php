@@ -41,6 +41,11 @@ class Equipe
      */
     private $apprenants;
 
+    public function __toString()
+    {
+        return $this->getNom();
+    }
+
 
     /**
      * Get id

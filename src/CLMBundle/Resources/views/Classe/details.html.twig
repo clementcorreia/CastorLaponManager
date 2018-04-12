@@ -1,0 +1,7 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    {% if classe is defined and classe is not null %}
+        <h2>{{ classe.nom }}</h2>
+    {% endif %}
+{% endblock %}
