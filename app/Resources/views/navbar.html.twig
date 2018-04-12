@@ -6,6 +6,10 @@
     <li><a href="{{ path('clm_equipe_liste') }}">Mes&nbsp;équipes</a></li>
     <li><a href="{{ path('clm_equipe_edit') }}">Nouvelle</a></li>
 </ul>
+<ul id="dropdownClasse" class="dropdown-content">
+    <li><a href="{{ path('clm_equipe_liste') }}">Mes&nbsp;classes</a></li>
+    <li><a href="{{ path('clm_equipe_edit') }}">Nouvelle</a></li>
+</ul>
 <nav class="">
     <div class="nav-wrapper container">
         <a href="{{ path('clm_homepage') }}" class="white-text brand-logo"><i class="material-icons black-text">pets</i> Castor Lapon Manager</a>
@@ -13,6 +17,7 @@
             {% if app.user %}
                 <li><a class="dropdown-trigger" href="#!" data-target="dropdownProjet">Projets<i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a class="dropdown-trigger" href="#!" data-target="dropdownEquipe">Equipes<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdownClasse">Classes<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a href="{{ path('logout') }}">Déconnexion</a></li>
             {% else %}
             <li><a href="{{ path('login') }}">Connexion</a></li><!-- Variable pour connexion/intervenant/etudiant/Admin -->
