@@ -81,3 +81,15 @@ clm_campus_liste:
 clm_campus_details:
     path:     /campus/{idCampus}
     defaults: { _controller: CLMBundle:Campus:details, idUtilisateur: null }
+
+clm_competence_edit:
+    path:     /competence/edit/{idCompetence}
+    defaults: { _controller: CLMBundle:Competence:edit, idCompetence: null }
+
+clm_competence_liste:
+    path:     /competence/liste
+    defaults: { _controller: CLMBundle:Competence:liste }
+
+clm_competence_details:
+    path:     /competence/{idCompetence}
+    defaults: { _controller: CLMBundle:Competence:details, idUtilisateur: null }

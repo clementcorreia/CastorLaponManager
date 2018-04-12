@@ -1,6 +1,7 @@
 {% extends "::base.html.twig" %}
 
 {% block content %}
+    <h3>Liste des projets</h3>
     <div class="row">
         {% for projet in projets %} <!-- récuperer les projets de l'équipe de l'étudiant -->
             <div class="col s12 m4">
@@ -8,6 +9,7 @@
                     <div class="card-content white-text">
                         <span class="card-title">{{ projet.nom }}</span>
                         <p>{{ projet.description }}</p>
+                        <p>Nombre d'équipes : {{ projet.equipes|length }}</p>
                     </div>
                     <div class="card-action">
                         <a href="{{ path('clm_projet_edit', {'idProjet' : projet.id}) }}">Modifier</a>

@@ -21,6 +21,9 @@
     <li class="divider"></li>
     <li><a href="{{ path('clm_campus_liste') }}">Liste des campus</a></li>
     <li><a href="{{ path('clm_campus_edit') }}">Nouveau campus</a></li>
+    <li class="divider"></li>
+    <li><a href="{{ path('clm_competence_liste') }}">Liste des compétences</a></li>
+    <li><a href="{{ path('clm_competence_edit') }}">Nouvelle compétence</a></li>
 </ul>
 {% elseif is_granted('ROLE_INTERVENANT') %}
 <ul id="dropdownProjet" class="dropdown-content">

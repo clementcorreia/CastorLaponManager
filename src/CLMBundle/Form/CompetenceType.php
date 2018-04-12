@@ -13,7 +13,9 @@ class CompetenceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom');
+        $builder->add('libelle', null, array(
+            'label' => 'Libellé',
+        ));
     }/**
      * {@inheritdoc}
      */

@@ -24,13 +24,13 @@ class Competence
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255, unique=true)
+     * @ORM\Column(name="libelle", type="string", length=255, unique=true)
      */
-    private $nom;
+    private $libelle;
 
     public function __toString()
     {
-        return $this->getNom();
+        return $this->getLibelle();
     }
 
 
@@ -43,28 +43,29 @@ class Competence
     {
         return $this->id;
     }
+    
 
     /**
-     * Set nom
+     * Set libelle
      *
-     * @param string $nom
+     * @param string $libelle
      *
      * @return Competence
      */
-    public function setNom($nom)
+    public function setLibelle($libelle)
     {
-        $this->nom = $nom;
+        $this->libelle = $libelle;
 
         return $this;
     }
 
     /**
-     * Get nom
+     * Get libelle
      *
      * @return string
      */
-    public function getNom()
+    public function getLibelle()
     {
-        return $this->nom;
+        return $this->libelle;
     }
 }

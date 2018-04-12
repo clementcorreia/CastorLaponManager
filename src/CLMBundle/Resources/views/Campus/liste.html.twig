@@ -17,7 +17,7 @@
         {% for campus in campusListe %} <!-- récuperer les campuss de l'équipe de l'étudiant -->
                 <tr>
                     <td>{{ campus.ville }}</td>
-                    <td></td>
+                    <td><a href="{{ path('clm_campus_edit', {'idCampus': campus.id}) }}"><i class="material-icons">edit</i></a></td>
                 </tr>
         {% endfor %}
             </tbody>

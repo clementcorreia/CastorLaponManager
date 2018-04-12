@@ -1,6 +1,7 @@
 {% extends "::base.html.twig" %}
 
 {% block content %}
+    <h3>Liste des utilisateurs</h3>
     <table>
         <thead>
             <tr>
@@ -9,6 +10,7 @@
                 <th>Login</th>
                 <th>Email</th>
                 <th>Roles</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +31,7 @@
                     <td>{{ utilisateur.username }}</td>
                     <td>{{ utilisateur.email }}</td>
                     <td>{{ roles }}</td>
+                    <td><a href="{{ path('clm_utilisateur_edit', {'idUtilisateur': utilisateur.id}) }}"><i class="material-icons">edit</i></a></td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -1,0 +1,21 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    <h3>Liste des compétences</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Libellé</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for competence in competences %}
+                <tr>
+                    <td>{{ competence.libelle }}</td>
+                    <td><a href="{{ path('clm_competence_edit', {'idCompetence': competence.id}) }}"><i class="material-icons">edit</i></a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

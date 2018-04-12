@@ -7,11 +7,24 @@
             <p>Aucun ticket</p>
         {% endif %}
         {% for ticket in tickets %} <!-- récuperer les tickets de l'équipe de l'étudiant -->
+            {% set competences = "" %}
+            {% for competence in ticket.competences %}
+                {% if loop.index == 1 %}
+                    {% set competences = competence %}
+                {% else %}
+                    {% set competences = competences~', '~competence %}
+                {% endif %}
+            {% endfor %}
+            {% if competences == "" %}
+                {% set competences = "<i>Aucune</i>" %}
+            {% endif %}
             <div class="col s12 m4">
                 <div class="card blue-grey darken-1">
                     <div class="card-content white-text">
                         <span class="card-title">{{ ticket.titre }}</span>
-                        <p>{{ ticket.contenu }}</p>
+                        <p>Projet : {% if ticket.projet is not null %}{{ ticket.projet }}{% else %}<i>Aucun</i>{% endif %}</p>
+                        <p>Destinataire : {% if ticket.recepteur is not null %}{{ ticket.recepteur }}{% else %}<i>Aucun</i>{% endif %}</p>
+                        <p>Compétences : {{ competences|raw }}</p>
                     </div>
                     <div class="card-action">
                         <a href="{{ path('clm_ticket_edit', {'idTicket' : ticket.id}) }}">Modifier</a>

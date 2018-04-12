@@ -41,6 +41,12 @@ class Equipe
      */
     private $apprenants;
 
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="CLMBundle\Entity\Projet")
+     */
+    private $projet;
+
     public function __toString()
     {
         return $this->getNom();
@@ -145,5 +151,29 @@ class Equipe
     public function getNom()
     {
         return $this->nom;
+    }
+
+    /**
+     * Set projet
+     *
+     * @param \CLMBundle\Entity\Projet $projet
+     *
+     * @return Equipe
+     */
+    public function setProjet(\CLMBundle\Entity\Projet $projet = null)
+    {
+        $this->projet = $projet;
+
+        return $this;
+    }
+
+    /**
+     * Get projet
+     *
+     * @return \CLMBundle\Entity\Projet
+     */
+    public function getProjet()
+    {
+        return $this->projet;
     }
 }

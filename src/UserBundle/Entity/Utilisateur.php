@@ -53,6 +53,11 @@ class Utilisateur extends BaseUser
         return $this->getPrenom()." ".$this->getNom();
     }
 
+    public function __toString()
+    {
+        return $this->getFullname();
+    }
+
     /**
      * Set nom
      *
