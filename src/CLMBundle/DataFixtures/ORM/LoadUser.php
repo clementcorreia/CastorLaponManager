@@ -35,7 +35,7 @@ class LoadUser extends AbstractFixture implements OrderedFixtureInterface
 
         $encoder = $this->container->get('security.password_encoder');
 
-        $item1 = new User();
+        $item1 = new Utilisateur();
         $this->addReference('_reference_CEMUserBundleEntityUser1', $item1);
         $item1->setNom("Correia");
         $item1->setPrenom("Clément");
@@ -47,7 +47,7 @@ class LoadUser extends AbstractFixture implements OrderedFixtureInterface
         $item1->setPassword($encoder->encodePassword($item1, 'clement'));
         $item1->addRole('ROLE_ADMIN');
 
-        $item2 = new User();
+        $item2 = new Utilisateur();
         $this->addReference('_reference_CEMUserBundleEntityUser2', $item2);
         $item2->setNom("Pasquier");
         $item2->setPrenom("Léonard");
@@ -59,7 +59,7 @@ class LoadUser extends AbstractFixture implements OrderedFixtureInterface
         $item2->setPassword($encoder->encodePassword($item2, 'leonard'));
         $item2->addRole('ROLE_INTERVENANT');
 
-        $item3 = new User();
+        $item3 = new Utilisateur();
         $this->addReference('_reference_CEMUserBundleEntityUser3', $item3);
         $item3->setNom("Severin");
         $item3->setPrenom("Hugo");
@@ -71,7 +71,7 @@ class LoadUser extends AbstractFixture implements OrderedFixtureInterface
         $item3->setPassword($encoder->encodePassword($item3, 'hugo'));
         $item3->addRole('ROLE_INTERVENANT');
 
-        $item4 = new User();
+        $item4 = new Utilisateur();
         $this->addReference('_reference_CEMUserBundleEntityUser4', $item4);
         $item4->setNom("Maury");
         $item4->setPrenom("Thomas");
@@ -83,7 +83,7 @@ class LoadUser extends AbstractFixture implements OrderedFixtureInterface
         $item4->setPassword($encoder->encodePassword($item4, 'thomas'));
         $item4->addRole('ROLE_APPRENANT');
 
-        $item5 = new User();
+        $item5 = new Utilisateur();
         $this->addReference('_reference_CEMUserBundleEntityUser5', $item5);
         $item5->setNom("Guilhaumon");
         $item5->setPrenom("Arnaud");
