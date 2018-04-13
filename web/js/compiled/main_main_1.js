@@ -16,4 +16,5 @@ $(document).ready(function(){
         firstDay:1
     });
     $('.timepicker').timepicker();
+    $('.sidenav').sidenav();
 });
