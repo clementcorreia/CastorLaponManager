@@ -31,6 +31,10 @@ class CampusController extends Controller {
             }
         }
 
+        if($result) {
+            $this->get('session')->getFlashBag()->add('success', "Le campus a bien été enregistré");
+        }
+
         return $this->render("CLMBundle:Campus:edit.html.twig", array(
             "form" => $form->createView(),
         ));

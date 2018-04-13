@@ -27,13 +27,20 @@ class TicketController extends Controller {
 
         $form->handleRequest($request);
 
+        $result = false;
+
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
                 $ticket = $form->getData();
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($ticket);
                 $em->flush();
+                $result = true;
             }
+        }
+
+        if($result) {
+            $this->get('session')->getFlashBag()->add('success', "Le ticket a bien été enregistré");
         }
 
         return $this->render("CLMBundle:Ticket:edit.html.twig", array(

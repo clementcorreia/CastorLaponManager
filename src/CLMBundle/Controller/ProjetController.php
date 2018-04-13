@@ -27,13 +27,20 @@ class ProjetController extends Controller {
 
         $form->handleRequest($request);
 
+        $result = false;
+
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
                 $projet = $form->getData();
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($projet);
                 $em->flush();
+                $result = true;
             }
+        }
+
+        if($result) {
+            $this->get('session')->getFlashBag()->add('success', "Le projet a bien été enregistré");
         }
 
         return $this->render("CLMBundle:Projet:edit.html.twig", array(

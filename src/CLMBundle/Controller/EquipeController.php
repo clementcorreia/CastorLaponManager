@@ -32,14 +32,19 @@ class EquipeController extends Controller {
             $form->remove('credit');
 
         $form->handleRequest($request);
-
+        $result = false;
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
                 $equipe = $form->getData();
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($equipe);
                 $em->flush();
+                $result = true;
             }
+        }
+
+        if($result) {
+            $this->get('session')->getFlashBag()->add('success', "L'équipe a bien été enregistrée");
         }
 
         return $this->render("CLMBundle:Equipe:edit.html.twig", array(

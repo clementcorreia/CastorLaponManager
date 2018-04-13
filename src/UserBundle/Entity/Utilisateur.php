@@ -39,6 +39,8 @@ class Utilisateur extends BaseUser
      */
     private $competences;
 
+    private $rolesTmp;
+
     /**
      * @ORM\ManyToOne(targetEntity="CLMBundle\Entity\Campus")
      */
@@ -173,5 +175,29 @@ class Utilisateur extends BaseUser
     public function getCampus()
     {
         return $this->campus;
+    }
+
+    /**
+     * Set rolesTmp
+     *
+     * @param string $rolesTmp
+     *
+     * @return Utilisateur
+     */
+    public function setRolesTmp($rolesTmp)
+    {
+        $this->rolesTmp = $rolesTmp;
+
+        return $this;
+    }
+
+    /**
+     * Get rolesTmp
+     *
+     * @return string
+     */
+    public function getRolesTmp()
+    {
+        return $this->rolesTmp;
     }
 }

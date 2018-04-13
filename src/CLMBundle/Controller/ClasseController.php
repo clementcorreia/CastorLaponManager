@@ -27,13 +27,20 @@ class ClasseController extends Controller {
 
         $form->handleRequest($request);
 
+        $result = false;
+
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
                 $classe = $form->getData();
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($classe);
                 $em->flush();
+                $result = true;
             }
+        }
+
+        if($result) {
+            $this->get('session')->getFlashBag()->add('success', "La classe a bien été enregistrée");
         }
 
         return $this->render("CLMBundle:Classe:edit.html.twig", array(

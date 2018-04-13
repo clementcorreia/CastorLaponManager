@@ -22,13 +22,20 @@ class CompetenceController extends Controller {
 
         $form->handleRequest($request);
 
+        $result = false;
+
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
                 $competence = $form->getData();
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($competence);
                 $em->flush();
+                $result = true;
             }
+        }
+
+        if($result) {
+            $this->get('session')->getFlashBag()->add('success', "La compétence a bien été enregistrée");
         }
 
         return $this->render("CLMBundle:Competence:edit.html.twig", array(
